@@ -1,7 +1,7 @@
 package com.example.demo.controllers;
 
-import com.uj.demo.demo.models.Club;
-import com.uj.demo.demo.services.GymService;
+import com.example.demo.models.Room;
+import com.example.demo.services.GymService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,18 +17,18 @@ public class GymController {
     }
 
     @GetMapping
-    public List<Club> getAllClubs() {
-        return gymService.getAllClubs();
+    public List<Room> getAllRooms() {
+        return gymService.getAllRooms();
     }
 
     @GetMapping("/{id}")
-    public Club getClubById(@PathVariable Long id) {
-        return gymService.getClubById(id);
+    public Room getRoomById(@PathVariable Long id) {
+        return gymService.getRoomById(id);
     }
 
     @PostMapping()
-    public Club addGym(@RequestBody @Valid Club club) {
+    public Room addGym(@RequestBody @Valid Room room) {
         System.out.println("Terminator: i need your clothes and bike.");
-        return gymService.addGym(club);
+        return gymService.addGym(room);
     }
 }

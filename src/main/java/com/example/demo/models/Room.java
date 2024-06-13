@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Club {
+public class Room {
     @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,9 +19,9 @@ public class Club {
     @Getter
     private String openingHours;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private final List<Event> events = new ArrayList<>();
+    private final List<CheckIn> events = new ArrayList<>();
 
-    public Club() {
+    public Room() {
     }
 
     public void setId(Long id) {
@@ -40,7 +40,7 @@ public class Club {
         this.openingHours = openingHours;
     }
 
-    public Club(Long id, String name, String address, String openingHours) {
+    public Room(Long id, String name, String address, String openingHours) {
         this.id = id;
         this.name = name;
         this.address = address;

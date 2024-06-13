@@ -1,7 +1,7 @@
 package com.example.demo.services;
 
-import com.uj.demo.demo.models.Club;
-import com.uj.demo.demo.repositories.GymRepository;
+import com.example.demo.models.Room;
+import com.example.demo.repositories.GymRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,20 +10,20 @@ import java.util.List;
 public class GymService {
     private final GymRepository gymRepository;
 
-    public GymService(GymRepository clubRepository) {
-        this.gymRepository = clubRepository;
+    public GymService(GymRepository roomRepository) {
+        this.gymRepository = roomRepository;
     }
 
-    public List<Club> getAllClubs() {
+    public List<Room> getAllRooms() {
         return gymRepository.findAll();
     }
 
-    public Club getClubById(Long id) {
+    public Room getRoomById(Long id) {
         return gymRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Club not found with id: " + id));
     }
 
-    public Club addGym(Club club) {
-        return gymRepository.save(club);
+    public Room addGym(Room room) {
+        return gymRepository.save(room);
     }
 }

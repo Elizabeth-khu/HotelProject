@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Coach {
+public class Client {
     @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,12 +15,12 @@ public class Coach {
     @Getter
     private String name;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private final List<Event> events = new ArrayList<>();
+    private final List<CheckIn> events = new ArrayList<>();
 
-    public Coach() {
+    public Client() {
     }
 
-    public Coach(Long id, String name) {
+    public Client(Long id, String name) {
         this.id = id;
         this.name = name;
     }

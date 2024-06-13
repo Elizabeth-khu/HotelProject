@@ -5,20 +5,20 @@ import lombok.Getter;
 
 @Getter
 @Entity
-public class Event {
+public class CheckIn {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "coach_id")
-    private Coach coach;
+    @JoinColumn(name = "client_id")
+    private Client coach;
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "club_id")
-    private Club club;
+    @JoinColumn(name = "room_id")
+    private Room room;
 
-    public Event() {
+    public CheckIn() {
     }
 
     public void setId(Long id) {
@@ -29,18 +29,18 @@ public class Event {
         this.name = name;
     }
 
-    public void setCoach(Coach coach) {
+    public void setCoach(Client coach) {
         this.coach = coach;
     }
 
-    public void setClub(Club club) {
-        this.club = club;
+    public void setClub(Room club) {
+        this.room = club;
     }
 
-    public Event(Long id, String name, Coach coach, Club club) {
+    public CheckIn(Long id, String name, Client coach, Room club) {
         this.id = id;
         this.name = name;
         this.coach = coach;
-        this.club = club;
+        this.room = club;
     }
 }
