@@ -9,38 +9,35 @@ public class CheckIn {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-
+    private String stayingPeriod;
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "client_id")
-    private Client coach;
+    private Client client;
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "room_id")
     private Room room;
 
-    public CheckIn() {
+    public CheckIn() {}
+    public CheckIn(Long id, Client client, Room room, String stayingPeriod) {
+        this.id = id;
+        this.client = client;
+        this.room = room;
+        this.stayingPeriod = stayingPeriod;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
-    public void setCoach(Client coach) {
-        this.coach = coach;
+    public void setRoom(Room room) {
+        this.room = room;
     }
 
-    public void setClub(Room club) {
-        this.room = club;
-    }
-
-    public CheckIn(Long id, String name, Client coach, Room club) {
-        this.id = id;
-        this.name = name;
-        this.coach = coach;
-        this.room = club;
+    public void setStayingPeriod(String stayingPeriod) {
+        this.stayingPeriod = stayingPeriod;
     }
 }

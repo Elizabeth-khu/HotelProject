@@ -8,42 +8,34 @@ import java.util.List;
 
 @Entity
 public class Room {
-    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Getter
-    private String name;
+    private String number;
     @Getter
-    private String address;
-    @Getter
-    private String openingHours;
+    private String capacity;            //1,2,3 or 4. type=String, not int — сомнительно но окэй
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private final List<CheckIn> events = new ArrayList<>();
+    private final List<CheckIn> checkIns = new ArrayList<>();
 
     public Room() {
+
+    }
+    public Room(Long id, String number, String capacity) {
+        this.id = id;
+        this.number = number;
+        this.capacity = capacity;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setOpeningHours(String openingHours) {
-        this.openingHours = openingHours;
-    }
-
-    public Room(Long id, String name, String address, String openingHours) {
-        this.id = id;
-        this.name = name;
-        this.address = address;
-        this.openingHours = openingHours;
+    public void setCapacity(String capacity) {
+        this.capacity = capacity;
     }
 }

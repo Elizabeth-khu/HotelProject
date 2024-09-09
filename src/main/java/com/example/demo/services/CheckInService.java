@@ -1,5 +1,7 @@
 package com.example.demo.services;
 
+import org.springframework.stereotype.Service;
+
 import com.example.demo.models.CheckIn;
 import com.example.demo.repositories.CheckInRepository;
 import org.springframework.stereotype.Service;
@@ -20,18 +22,20 @@ public class CheckInService {
 
     public CheckIn getCheckInById(Long id) {
         return checkInRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Event not found with id: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Check in not found with id: " + id));
     }
 
-    public List<CheckIn> getCheckInByClientId(Long coachId) {
-        return checkInRepository.findByClientId(coachId);
-    }
+    /*public List<CheckIn> getCheckInByClientId(Long clientId) {
+        return checkInRepository.findByClientId(clientId)
+                .orElseThrow(() -> new IllegalArgumentException("Check in not found with client id: " + clientId));
+    }*/
 
-    public List<CheckIn> getCheckInByClubId(Long clubId) {
-        return checkInRepository.findByRoomId(clubId);
-    }
+   /* public List<CheckIn> getCheckInByRoomId(Long roomId) {
+        return checkInRepository.findByRoomId(roomId)
+                .orElseThrow(() -> new IllegalArgumentException("Check in not found with room id: " + roomId));
+    }*/
 
-    public CheckIn addCheckIn(CheckIn event) {
-        return checkInRepository.save(event);
+    public CheckIn addCheckIn(CheckIn checkIn) {
+        return checkInRepository.save(checkIn);
     }
 }

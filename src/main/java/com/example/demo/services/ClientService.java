@@ -23,6 +23,8 @@ public class ClientService {
                 .orElseThrow(() -> new IllegalArgumentException("Client not found with id: " + id));
     }
 
+    //see ClientController
+
     public Client addClient(Client client) {
         return clientRepository.save(client);
     }

@@ -15,7 +15,8 @@ public class Client {
     @Getter
     private String name;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private final List<CheckIn> events = new ArrayList<>();
+    private final List<CheckIn> checkIns = new ArrayList<>();
+
 
     public Client() {
     }

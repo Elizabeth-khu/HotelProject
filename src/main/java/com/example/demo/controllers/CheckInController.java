@@ -1,5 +1,4 @@
 package com.example.demo.controllers;
-
 import com.example.demo.models.CheckIn;
 import com.example.demo.services.CheckInService;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +17,7 @@ public class CheckInController {
     @GetMapping
     public List<CheckIn> getAllCheckIn() {
         return checkInService.getAllCheckIn();
-    }
+    }//breakpoint
 
     @GetMapping("/{id}")
     public CheckIn getCheckInById(@PathVariable Long id) {
@@ -27,12 +26,12 @@ public class CheckInController {
 
     @GetMapping(params = "clientId")
     public List<CheckIn> getEventsByClientId(@RequestParam Long clientId) {
-        return checkInService.getCheckInByClientId(clientId);
+        return null;//checkInService.getCheckInByClientId(clientId);
     }
 
-    @GetMapping(params = "clubId")
-    public List<CheckIn> getCheckInByClubId(@RequestParam Long roomId) {
-        return checkInService.getCheckInByClubId(roomId);
+    @GetMapping(params = "roomId")
+    public List<CheckIn> getCheckInByRoomId(@RequestParam Long roomId) {
+        return null;// checkInService.getCheckInByRoomId(roomId);
     }
 
     @PostMapping

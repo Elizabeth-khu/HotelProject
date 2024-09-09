@@ -11,8 +11,6 @@ services:
       MYSQL_DATABASE: demo_db
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
-      MYSQL_MAX_ALLOWED_PACKET: 1G
-      command: --max-allowed-packet=200M
     volumes:
       - mysql_data:/var/lib/mysql
     networks:

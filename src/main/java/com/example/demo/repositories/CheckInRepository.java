@@ -7,6 +7,7 @@ import org.springframework.lang.Nullable;
 import java.util.List;
 
 public interface CheckInRepository extends JpaRepository<CheckIn, Long> {
+    //delete
     List<CheckIn> findByClientId(Long clientId);
 
     List<CheckIn> findByRoomId(Long clubId);
