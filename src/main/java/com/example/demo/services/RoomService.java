@@ -18,17 +18,17 @@ public class RoomService {
         return roomRepository.findAll();
     }
 
-    public Room getRoomById(Long id) {
+    public Room getRoomById(int id) {
         return roomRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Room not found with id: " + id));
     }
 
-    public Room getRoomByNumber(String roomNumber) {
+    public Room getRoomByNumber(int roomNumber) {
         return (Room) roomRepository.findByNumber(roomNumber)
                 .orElseThrow(() -> new IllegalArgumentException("Room not found with number: " + roomNumber));
     }
 
-    public List<Room> getRoomByCapacity(String roomCapacity) {
+    public List<Room> getRoomByCapacity(int roomCapacity) {
         return (List<Room>) roomRepository.findByCapacity(roomCapacity)
                 .orElseThrow(() -> new IllegalArgumentException("Room not found with capacity: " + roomCapacity));
     }

@@ -22,12 +22,12 @@ public class ClientController {
     }
 
     @GetMapping("/{id}")
-    public Client getClientById(@PathVariable Long id) {
+    public Client getClientById(@PathVariable int id) {
         return clientService.getClientById(id);
     }
 
     @PostMapping
-    public Client addClient(@RequestBody Client coach) {
-        return clientService.addClient(coach);
+    public Client addClient(@RequestBody Client client) {
+        return clientService.addClient(client);
     }
 }

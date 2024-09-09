@@ -18,7 +18,7 @@ public class ClientService {
         return clientRepository.findAll();
     }
 
-    public Client getClientById(Long id) {
+    public Client getClientById(int id) {
         return clientRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Client not found with id: " + id));
     }

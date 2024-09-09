@@ -20,17 +20,17 @@ public class CheckInController {
     }//breakpoint
 
     @GetMapping("/{id}")
-    public CheckIn getCheckInById(@PathVariable Long id) {
+    public CheckIn getCheckInById(@PathVariable int id) {
         return checkInService.getCheckInById(id);
     }
 
     @GetMapping(params = "clientId")
-    public List<CheckIn> getEventsByClientId(@RequestParam Long clientId) {
+    public List<CheckIn> getEventsByClientId(@RequestParam int clientId) {
         return null;//checkInService.getCheckInByClientId(clientId);
     }
 
     @GetMapping(params = "roomId")
-    public List<CheckIn> getCheckInByRoomId(@RequestParam Long roomId) {
+    public List<CheckIn> getCheckInByRoomId(@RequestParam int roomId) {
         return null;// checkInService.getCheckInByRoomId(roomId);
     }
 

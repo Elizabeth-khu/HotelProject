@@ -10,32 +10,32 @@ import java.util.List;
 public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     @Getter
-    private String number;
+    private int number;
     @Getter
-    private String capacity;            //1,2,3 or 4. type=String, not int — сомнительно но окэй
+    private int capacity;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private final List<CheckIn> checkIns = new ArrayList<>();
 
     public Room() {
 
     }
-    public Room(Long id, String number, String capacity) {
+    public Room(int id, int number, int capacity) {
         this.id = id;
         this.number = number;
         this.capacity = capacity;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public void setNumber(String number) {
+    public void setNumber(int number) {
         this.number = number;
     }
 
-    public void setCapacity(String capacity) {
+    public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
 }

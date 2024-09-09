@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.models.CheckIn;
 import com.example.demo.repositories.CheckInRepository;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -20,7 +19,7 @@ public class CheckInService {
         return checkInRepository.findAll();
     }
 
-    public CheckIn getCheckInById(Long id) {
+    public CheckIn getCheckInById(int id) {
         return checkInRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Check in not found with id: " + id));
     }

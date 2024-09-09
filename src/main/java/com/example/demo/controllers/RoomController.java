@@ -2,7 +2,6 @@ package com.example.demo.controllers;
 
 import com.example.demo.models.Room;
 import com.example.demo.services.RoomService;
-import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,20 +21,20 @@ public class RoomController {
     }
 
     @GetMapping("/{id}")
-    public Room getRoomById(@PathVariable Long id) {
+    public Room getRoomById(@PathVariable int id) {
         return roomService.getRoomById(id);
     }
     @GetMapping(params = "roomNumber")
-    public Room getRoomByNumber(@PathVariable Long roomNumber) {
-        return roomService.getRoomByNumber(String.valueOf(roomNumber));
+    public Room getRoomByNumber(@PathVariable int roomNumber) {
+        return roomService.getRoomByNumber(roomNumber);
     }
     @GetMapping(params = "roomCapacity")
-    public List<Room> getRoomByCapacity(@PathVariable Long roomCapacity) {
-        return roomService.getRoomByCapacity(String.valueOf(roomCapacity));
+    public List<Room> getRoomByCapacity(@PathVariable int roomCapacity) {
+        return roomService.getRoomByCapacity(roomCapacity);
     }
 
-    @PostMapping()
-    public Room addRoom(@RequestBody @Valid Room room) {
-        return roomService.addRoom(room);
-    }
+    //@PostMapping()
+    //public Room addRoom(@RequestBody @Valid Room room) {
+    //    return roomService.addRoom(room);
+    //}
 }
