@@ -1,2 +1,4 @@
-package com.example.demo.repositories;public interface InfoStructure {
+package com.example.demo.repositories;
+
+public interface InfoStructure {
 }

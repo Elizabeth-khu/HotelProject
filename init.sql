@@ -1,20 +1,16 @@
 -- Таблица с комнатами
-CREATE DATABASE IF NOT EXISTS hotel_db
-
-USE hotel_db;
-
 CREATE TABLE IF NOT EXISTS hotel (
-                       id INT PRIMARY KEY AUTO_INCREMENT,  -- Уникальный идентификатор комнаты
-                       room_number INT NOT NULL,            -- Номер комнаты
-                       room_type VARCHAR(50),               -- Тип комнаты (например, одноместный, двухместный, люкс)
-                       capacity INT,                        -- Вместимость (например, количество мест)
-                       price_per_night DECIMAL(10, 2),      -- Стоимость за ночь
-                       status VARCHAR(20) DEFAULT 'available' -- Статус комнаты (например, доступна, занята, на обслуживании)
-);
+                                     id INT PRIMARY KEY AUTO_INCREMENT,  -- Уникальный идентификатор комнаты
+                                     room_number INT NOT NULL,            -- Номер комнаты
+                                     room_type VARCHAR(50),               -- Тип комнаты (например, одноместный, двухместный, люкс)
+                capacity INT,                        -- Вместимость (например, количество мест)
+    price_per_night DECIMAL(10, 2),      -- Стоимость за ночь
+    status VARCHAR(20) DEFAULT 'available' -- Статус комнаты (например, доступна, занята, на обслуживании)
+    );
 
 -- Вставка комнат по 10 для каждой вместимости (1, 2, 3 и 4 человека)
 -- Одноместные комнаты (capacity = 1)
-INSERT INTO  hotel (room_number, room_type, capacity, price_per_night) VALUES
+INSERT INTO hotel(room_number, room_type, capacity, price_per_night) VALUES
                                                                           (101, 'Single', 1, 100.00),
                                                                           (102, 'Single', 1, 100.00),
                                                                           (103, 'Single', 1, 100.00),

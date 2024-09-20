@@ -33,6 +33,16 @@ public class RoomController {
         return roomService.getRoomByCapacity(roomCapacity);
     }
 
+    @PostMapping(params = "roomNumber")
+    public boolean reserve(@PathVariable int id) {
+        return roomService.reserve(id);
+    }
+
+    @PostMapping(params = "id")
+    public boolean payForRoom(@PathVariable int id) {
+        return roomService.pay(id);
+    }
+
     //@PostMapping()
     //public Room addRoom(@RequestBody @Valid Room room) {
     //    return roomService.addRoom(room);

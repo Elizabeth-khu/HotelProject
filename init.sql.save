@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS hotel (
 
 -- Вставка комнат по 10 для каждой вместимости (1, 2, 3 и 4 человека)
 -- Одноместные комнаты (capacity = 1)
-INSERT INTO  hotel (room_number, room_type, capacity, price_per_night) VALUES
+INSERT INTO  (room_number, room_type, capacity, price_per_night) VALUES
                                                                           (101, 'Single', 1, 100.00),
                                                                           (102, 'Single', 1, 100.00),
                                                                           (103, 'Single', 1, 100.00),
@@ -74,5 +74,5 @@ CREATE TABLE reservations (
                               check_out_date DATE,                -- Дата выезда
                               total_price DECIMAL(10, 2),         -- Общая стоимость проживания
                               status VARCHAR(20) DEFAULT 'booked', -- Статус бронирования (например, забронировано, отменено)
-                              CONSTRAINT fk_room_id FOREIGN KEY (room_number) REFERENCES hotel(id) -- Внешний ключ на таблицу комнат
-);
+                              CONSTRAINT fk_room_id FOREIGN KEY (room_number) REFERENCES rooms(id) -- Внешний ключ на таблицу комнат
+)

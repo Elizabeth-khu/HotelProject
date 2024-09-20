@@ -5,6 +5,7 @@ import com.example.demo.repositories.RoomRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RoomService {
@@ -35,5 +36,27 @@ public class RoomService {
 
     public Room addRoom(Room room) {
         return roomRepository.save(room);
+    }
+
+    public boolean reserve(int id) {
+        Room foundRoom = roomRepository.findNotReservedById(id);
+        if (foundRoom.isPresent()) {
+            foundRoom.setReserve(true);
+            roomRepository.save(foundRoom);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean pay(int id) {
+        Room foundRoom = roomRepository.findNotReservedById(id);
+        if (foundRoom.isPresent()) {
+
+            Room room = foundRoom.get();
+            room.setPaid(true);
+            roomRepository.save(foundRoom);
+            return true;
+        }
+        return false;
     }
 }

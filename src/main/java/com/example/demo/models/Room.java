@@ -13,11 +13,16 @@ public class Room {
     private int id;
     @Getter
     private int number;
+
     @Getter
     private int capacity;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private final List<CheckIn> checkIns = new ArrayList<>();
 
+    @Getter
+    boolean isPaid = false;
+    @Getter
+    boolean isReserved = false;
     public Room() {
 
     }
@@ -38,4 +43,12 @@ public class Room {
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
+
+    public void setReserve(boolean b) { this.isReserved = b; }
+
+    public boolean isPresent() { return this.isReserved;}
+
+    public Room get() { return this;}
+
+    public void setPaid(boolean b) { this.isPaid = b;}
 }
